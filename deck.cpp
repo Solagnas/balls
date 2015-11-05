@@ -52,6 +52,7 @@ class deck {
 		card getCard(int n) { return m_cards[n]; }
 };
 
+
 int main() {		//test code
 	//initialize deck
     deck gameDeck;
