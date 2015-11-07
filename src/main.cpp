@@ -5,7 +5,7 @@ using namespace std;
 #include "../depend/card.hpp"
 #include "../depend/deck.hpp"
 #include "../depend/hand.hpp"
-
+#include "../depend/player.hpp"
 
 int main() {		
 	//initialize deck
@@ -13,8 +13,6 @@ int main() {
     
 	//index for the card array
     int n = 17;
-
-    
     
 	//prints in form -- rank, suit -- as integers
     gameDeck.getCard(n).print();
@@ -24,8 +22,21 @@ int main() {
     cout << endl;
     
     // Shuffles deck
-    Hand hand(gameDeck);
+    gameDeck.shuffle();
     gameDeck.prettyPrint();
+    
+    
+    // ------------ Player Test ------------
+    std::string player1Name = "Pooby Nooples";
+    Player poobyNooples(player1Name, PlayerPosition(0)); 
+    poobyNooples.print();
+    poobyNooples.prettyPrint();
+
+    // Hand and draw
+    Hand hand(gameDeck);
+    hand.drawCard(5);
+    cout << endl << "the hand contains: \n";
+    hand.prettyPrint();
     
     return 0;
 }
