@@ -1,11 +1,16 @@
 #include "../depend/hand.hpp"
 
-//draws the starting hand and instantiates the Hand
+/*------------------Constructors-----------------*/
+
+    //draws the starting hand and instantiates the Hand
 Hand::Hand(Deck& drawFrom) {
     m_cards[0] = drawFrom.removeCard();
     m_cards[1] = drawFrom.removeCard();
     m_nRemainingCards = 2;
 }
+    //default constructor and destructor
+Hand::Hand() {}
+Hand::~Hand() {}
 
 //removes a card from the target deck and adds it to this hand
 void Hand::draw(Deck& drawFrom, int numCards) {
@@ -16,3 +21,17 @@ void Hand::draw(Deck& drawFrom, int numCards) {
 }
 
 Card Hand::getCard(int n) { return m_cards[n]; }
+
+/*----------------Print-------------------------*/
+
+void Hand::print() {
+    for(int i; i < m_nRemainingCards; i++) {
+        getCard(i).print();
+    }
+}
+
+void Hand::prettyPrint() {
+    for(int i = 0; i < m_nRemainingCards; i++) {
+        getCard(i).prettyPrint();
+    }
+}

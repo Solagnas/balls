@@ -13,30 +13,31 @@ class Card {
 		CardSuit m_suit;
 		static const std::string cardRankStr[15];
 		static const std::string cardSuitStr[15];
+        
 	public:
-		//default constructor
+        // -------- Constructors -------
 		Card();
         
 		//default destructor
 		~Card();
 		Card(CardRank, CardSuit);
         
-		// Getters
+		// ---------- Getters ----------
 		std::string getRankStr();
 		std::string getSuitStr();
 		int getRank();
 		int getSuit();
 		
-        	// Setters
+        // ---------- Setters ----------
 		void setRank(CardRank);
 		void setSuit(CardSuit);
 
-    	    	// Printing
-        	// "3, 2"
-        	void print();
-	
-       		 // "Five of Diamonds"
-       	 	void prettyPrint();
+        // --------- Printing ----------
+        // "3, 2"
+        void print();
+
+        // "Five of Diamonds"
+        void prettyPrint();
 };
 
 #endif

@@ -9,9 +9,15 @@ class Hand {
         Card m_cards[15];
         int m_nRemainingCards;
     public:
+        Hand(Deck&);
+        Hand();
+        ~Hand();
+
         void draw(Deck&, int);
         Card getCard(int);
-        Hand(Deck&);
+
+        void print();
+        void prettyPrint();
 };
 
 #endif

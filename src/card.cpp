@@ -8,8 +8,8 @@ const std::string Card::cardRankStr[]={ "Two", "Three", "Four", "Five", "Six", "
 const std::string Card::cardSuitStr[]={ "Spades", "Clubs", "Diamonds", "Hearts" }; 
 
 
-
-//default destructor
+// ==================== Public Methods ====================
+// --------------------- Constructors ---------------------
 Card::Card() {}
 Card::~Card() {}
 Card::Card(CardRank r, CardSuit s) {
@@ -17,23 +17,27 @@ Card::Card(CardRank r, CardSuit s) {
 	m_suit = s;
 }
         
-// Getters
+        
+// ----------------------- Getters ------------------------
 std::string Card::getRankStr() { return cardRankStr[m_rank]; }
 std::string Card::getSuitStr() { return cardSuitStr[m_suit]; }
 
 int Card::getRank() { return m_rank; }
 int Card::getSuit() { return m_suit; }
 		
-// Setters
+        
+// ----------------------- Setters ------------------------
 void Card::setRank(CardRank r) { m_rank = r; }
 void Card::setSuit(CardSuit s) { m_suit = s; }
        
-// Printing
+       
+// ----------------------- Printing -----------------------
 // "3, 2"
 void Card::print() {
 	std::cout << getRank() << ", " << getSuit() 
              << std::endl;       
 }
+
 // "Five of Diamonds"
 void Card::prettyPrint() {
 	std::cout << getRankStr() << " of " << getSuitStr() 
