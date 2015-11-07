@@ -4,6 +4,7 @@
 using namespace std;
 #include "../depend/card.hpp"
 #include "../depend/deck.hpp"
+#include "../depend/player.hpp"
 
 
 int main() {		
@@ -23,6 +24,13 @@ int main() {
     // Shuffles deck
     gameDeck.shuffle();
     gameDeck.prettyPrint();
+    
+    
+    // ------------ Player Test ------------
+    std::string player1Name = "Pooby Nooples";
+    Player poobyNooples(player1Name, PlayerPosition(0)); 
+    poobyNooples.print();
+    poobyNooples.prettyPrint();
     
     return 0;
 }
