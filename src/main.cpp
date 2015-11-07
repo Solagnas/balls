@@ -4,8 +4,8 @@
 using namespace std;
 #include "../depend/card.hpp"
 #include "../depend/deck.hpp"
+#include "../depend/hand.hpp"
 #include "../depend/player.hpp"
-
 
 int main() {		
 	//initialize deck
@@ -31,6 +31,12 @@ int main() {
     Player poobyNooples(player1Name, PlayerPosition(0)); 
     poobyNooples.print();
     poobyNooples.prettyPrint();
+
+    // Hand and draw
+    Hand hand(gameDeck);
+    hand.drawCard(5);
+    cout << endl << "the hand contains: \n";
+    hand.prettyPrint();
     
     return 0;
 }
