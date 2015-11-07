@@ -6,6 +6,7 @@ using namespace std;
 
 const std::string Player::playerPosStr[]={ "Bottom", "Left", "Top", "Right" };
 
+// ==================== Public Methods ====================
 // --------------------- Constructors ---------------------
 Player::Player() {}
 Player::~Player() {}

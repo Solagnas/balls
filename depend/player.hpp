@@ -15,21 +15,21 @@ class Player {
         static const std::string playerPosStr[4];
         
     public:
-        // -------- Constructors -------
+        // ------- Constructors -------
         Player();
         ~Player();
         Player(std::string, PlayerPosition);
         
-		// ---------- Getters ----------
+		// --------- Getters ----------
 		std::string getName();
 		std::string getPosStr();
 		int getPos();
 		
-        // ---------- Setters ----------
+        // --------- Setters ----------
 		void setName(std::string);
 		void setPos(PlayerPosition);
 
-        // ---------- Printing ---------
+        // --------- Printing ---------
         void print();
         void prettyPrint();
 };

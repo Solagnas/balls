@@ -4,6 +4,8 @@
 #include <time.h>       // time
 #include "../depend/deck.hpp"
 
+// ==================== Private Methods ===================
+// Swaps cards at indices a and b
 void Deck::swap(int a, int b) {
 	if(a==b){ return; }
         // TODO: see if swapping references/pointers is better way
@@ -11,8 +13,10 @@ void Deck::swap(int a, int b) {
         m_cards[a] = m_cards[b];
         m_cards[b] = temp;
 }
-        
-// Constructor, will initialize 52 unique cards
+
+// ==================== Public Methods ====================
+// --------------------- Constructor ----------------------
+// Initializes 52 unique cards
 Deck::Deck() { 
 	int count = 0;
 	CardRank r;
@@ -24,11 +28,36 @@ Deck::Deck() {
 			m_cards[count] = Card(r, s);
 			count++;
 		}
-    }
-    m_nRemainingCards = count;
-    
+        }
 }
 
+
+// ------------------------ Getter ------------------------
+// Get nth card in the Deck
+Card Deck::getCard(int n) { return m_cards[n]; }
+
+        
+// ----------------------- Printing -----------------------
+/*  "3, 2"    *
+ *  "12, 0"   *
+ */
+void Deck::print() {
+       for(int n=0; n<52; n++) {
+               getCard(n).print();
+       }
+}
+
+/*  "Five of Diamonds"    *
+ *  "Ace of Spades"       *
+ */
+void Deck::prettyPrint() {
+       for(int n=0; n<52; n++) {
+               getCard(n).prettyPrint();
+       }
+}
+
+
+// ----------------------- Sorting ------------------------
 // Fisher-Yates shuffle (in place)
 void Deck::shuffle(){
 	int j = 0;
@@ -39,36 +68,3 @@ void Deck::shuffle(){
                 swap(i, j);             // Swap cards at indices i and j
         }
 } 
-        
-// Printing
-/*  "3, 2"    *
- *  "12, 0"   *
- */
-void Deck::print() {
-       for(int n=0; n<m_nRemainingCards; n++) {
-               getCard(n).print();
-       }
-}
-
-/*  "Five of Diamonds"    *
- *  "Ace of Spades"       *
- */
-void Deck::prettyPrint() {
-       for(int n=0; n<m_nRemainingCards; n++) {
-               getCard(n).prettyPrint();
-       }
-}
-        
-// Get a specific card at a given location in the Deck
-Card Deck::getCard(int n) { return m_cards[n]; }
-
-//removes from the top of the deck
-Card Deck::removeCard() {
-    Card temp = getCard(0);
-    for(int i = 0; i < m_nRemainingCards - 1; i++) {
-        m_cards[i] = m_cards[i+1];
-    }
-    m_cards[m_nRemainingCards - 1] = Card();
-    m_nRemainingCards--;
-    return temp;
-}
