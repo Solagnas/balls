@@ -4,6 +4,7 @@
 using namespace std;
 #include "../depend/card.hpp"
 #include "../depend/deck.hpp"
+#include "../depend/hand.hpp"
 
 
 int main() {		
@@ -12,6 +13,8 @@ int main() {
     
 	//index for the card array
     int n = 17;
+
+    
     
 	//prints in form -- rank, suit -- as integers
     gameDeck.getCard(n).print();
@@ -21,7 +24,7 @@ int main() {
     cout << endl;
     
     // Shuffles deck
-    gameDeck.shuffle();
+    Hand hand(gameDeck);
     gameDeck.prettyPrint();
     
     return 0;
