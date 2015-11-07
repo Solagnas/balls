@@ -24,7 +24,9 @@ Deck::Deck() {
 			m_cards[count] = Card(r, s);
 			count++;
 		}
-        }
+    }
+    m_nRemainingCards = count;
+    
 }
 
 // Fisher-Yates shuffle (in place)
@@ -43,7 +45,7 @@ void Deck::shuffle(){
  *  "12, 0"   *
  */
 void Deck::print() {
-       for(int n=0; n<52; n++) {
+       for(int n=0; n<m_nRemainingCards; n++) {
                getCard(n).print();
        }
 }
@@ -52,10 +54,21 @@ void Deck::print() {
  *  "Ace of Spades"       *
  */
 void Deck::prettyPrint() {
-       for(int n=0; n<52; n++) {
+       for(int n=0; n<m_nRemainingCards; n++) {
                getCard(n).prettyPrint();
        }
 }
         
 // Get a specific card at a given location in the Deck
 Card Deck::getCard(int n) { return m_cards[n]; }
+
+//removes from the top of the deck
+Card Deck::removeCard() {
+    Card temp = getCard(0);
+    for(int i = 0; i < m_nRemainingCards - 1; i++) {
+        m_cards[i] = m_cards[i+1];
+    }
+    m_cards[m_nRemainingCards - 1] = Card();
+    m_nRemainingCards--;
+    return temp;
+}
